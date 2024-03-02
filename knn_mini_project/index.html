@@ -115,19 +115,19 @@
                     ###########################################
 
 
-                    url1 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_ids_train.csv")
+                    url1 = ("https://huizarn.github.io/huizarn-NH_ITS365_2024/knn_mini_project/PD_ids_train.csv")
                     pd_ids_train = pd.read_csv(open_url(url1))
                     pd_ids_train_np = pd_ids_train.to_numpy()
                     pd_ids_train_np          = pd_ids_train_np[1:, 1:]
 
-                    url2 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_conditions_train.csv")
+                    url2 = ("https://huizarn.github.io/huizarn-NH_ITS365_2024/knn_mini_project/PD_conditions_train.csv")
                     pd_conditions_train = pd.read_csv(open_url(url2))
                     pd_conditions_train_np = pd_conditions_train.to_numpy()
                     pd_conditions_train_np   = pd_conditions_train_np[1:, 1:]
 
                     #########################################################################################################
 
-                    url3 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_imgs_np_train.csv")
+                    url3 = ("https://huizarn.github.io/huizarn-NH_ITS365_2024/knn_mini_project/PD_imgs_np_train.csv")
                     pd_imgs_np_train = pd.read_csv(open_url(url3))
                     pd_imgs_np_train_np = pd_imgs_np_train.to_numpy()
                     pd_imgs_np_train_np      = pd_imgs_np_train_np[1:, 1:]
@@ -146,7 +146,7 @@
                         distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
                         k = 3
                         k_neighbor_indices = np.argsort(distances)[:k]
-                        selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((140, 39))  for i in k_neighbor_indices  ]
+                        selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((250, 250))  for i in k_neighbor_indices  ]
                     
                         avg_gen_img = np.mean( np.array(selected_imgs_to_avg), axis=0 )
                         avg_gen_img = avg_gen_img.astype(int)
