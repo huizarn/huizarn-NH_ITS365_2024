@@ -123,6 +123,7 @@
                     pd_imgs_np_train_np = pd_imgs_np_train.to_numpy()
                     pd_imgs_np_train_np      = pd_imgs_np_train_np[1:, 1:]
 
+
             
                     ######################################################
 
@@ -135,46 +136,7 @@
                     def predict(test_x):
                     
                         distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
-                        k = 5
-                        k_neighbor_indices = np.argsort(distances)[:k]
-                        selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((225, 225))  for i in k_neighbor_indices  ]
-                    
-                        avg_gen_img = np.mean( np.array(selected_imgs_to_avg), axis=0 )
-                        avg_gen_img = avg_gen_img.astype(int)
-                        return avg_gen_img
-
-                    ##################################################
-
-                    def get_np_conditions_vector():
-                        c1 = float( Element('testInput1').element.value )
-                        c2 = float( Element('testInput2').element.value )
-                        c3 = float( Element('testInput3').element.value )
-                        c4 = float( Element('testInput4').element.value )
-                        c5 = float( Element('testInput5').element.value )
-                        c6 = float( Element('testInput6').element.value )
-                        c7 = float( Element('testInput7').element.value )
-                        c8 = float( Element('testInput8').element.value )
-                        c9 = float( Element('testInput9').element.value )
-                        c10 = float( Element('testInput10').element.value )
-
-                        conditions_list = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10]
-                        np_conditions_list = np.array(conditions_list)
-                        np_conditions_list = np.expand_dims(np_conditions_list, axis=0)
-
-                        return np_conditions_list
-
-                    ######################################################
-
-                    def euclidean_distance(v1, v2):
-                        return np.sqrt( np.sum(   (v1 - v2)**2   )   )
-
-              
-                    ######################################################
-
-                    def predict(test_x):
-                    
-                        distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
-                        k = 5
+                        k = 3
                         k_neighbor_indices = np.argsort(distances)[:k]
                         selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((140, 39))  for i in k_neighbor_indices  ]
                     
@@ -228,7 +190,7 @@
                         #####################################################
 
                         fig1, ax1 = plt.subplots()
-                        plt.imshow(generated_img)                                     , cmap='gray')
+                        plt.imshow(generated_img)                                     , cmap='summer')
                         
                         ax1.set_title(str_conditions)
 
