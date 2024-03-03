@@ -1,8 +1,6 @@
 <html>
+  <head>
 
-
-    
-    <head>
         <title>Generate Weather Images per Conditions</title>
         <meta charset="utf-8" />
         <link rel="icon" type="image/x-icon" href="./favicon.png" />
@@ -12,15 +10,11 @@
         />
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         <link rel="stylesheet" href="./assets/css/examples.css" />
-    </head>
-
-
-
     
-    <body>
+  </head>
+  <body>
 
-        
-        <nav class="navbar" style="background-color: #000000">
+          <nav class="navbar" style="background-color: #000000">
             <div class="app-header">
                 <a href="">
                     <img src="./logo.png" class="logo" />
@@ -69,7 +63,8 @@
      <td>     <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput10"/>  </td>
   </tr> 
  
- </table> 
+ </table>
+ 
 
        
          <button id="get-time" py-click="my_gen_function()"  class="py-button">Generate</button>
@@ -81,13 +76,11 @@
 
         <div id="pandas-output"></div>
 
-        
 
-        <section class="pyscript"> 
+         <section class="pyscript"> 
             <div id="mpl"></div>
 
-                
-                <py-config>
+            <py-config>
                     packages = [
                       "matplotlib",
                       "pandas",
@@ -95,12 +88,10 @@
                     plugins = [
                       "https://pyscript.net/latest/plugins/python/py_tutor.py"
                     ]
-                </py-config>
+              </py-config>
 
-
-                
-
-                <script type="py">
+             
+              <script type="py">
 
                     
                     import matplotlib.pyplot as plt
@@ -144,7 +135,7 @@
                     def predict(test_x):
                     
                         distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
-                        k = 5
+                        k = 3
                         k_neighbor_indices = np.argsort(distances)[:k]
                         selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((225, 225))  for i in k_neighbor_indices  ]
                     
@@ -199,7 +190,7 @@
 
                         fig1, ax1 = plt.subplots()
                         plt.imshow(generated_img)                                     ##, cmap='gray_r')
-                       
+                        
                         ax1.set_title(str_conditions)
 
                         ## Element('mpl').element.innerText = ""        ## use this to not accumulate imgs
@@ -216,10 +207,10 @@
                         ## display(fig, target="mpl")
    
                 </script>
-         
-        </section>
 
 
-        
-    </body>
+
+         </section>
+    
+  </body>
 </html>
