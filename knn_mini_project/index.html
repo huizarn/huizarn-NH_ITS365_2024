@@ -1,6 +1,8 @@
 <html>
-  <head>
 
+
+    
+    <head>
         <title>Generate Weather Images per Conditions</title>
         <meta charset="utf-8" />
         <link rel="icon" type="image/x-icon" href="./favicon.png" />
@@ -10,11 +12,15 @@
         />
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         <link rel="stylesheet" href="./assets/css/examples.css" />
-    
-  </head>
-  <body>
+    </head>
 
-          <nav class="navbar" style="background-color: #000000">
+
+
+    
+    <body>
+
+        
+        <nav class="navbar" style="background-color: #000000">
             <div class="app-header">
                 <a href="">
                     <img src="./logo.png" class="logo" />
@@ -63,8 +69,7 @@
      <td>     <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput10"/>  </td>
   </tr> 
  
- </table>
- 
+ </table> 
 
        
          <button id="get-time" py-click="my_gen_function()"  class="py-button">Generate</button>
@@ -76,11 +81,13 @@
 
         <div id="pandas-output"></div>
 
+        
 
-         <section class="pyscript"> 
+        <section class="pyscript"> 
             <div id="mpl"></div>
 
-            <py-config>
+                
+                <py-config>
                     packages = [
                       "matplotlib",
                       "pandas",
@@ -88,10 +95,12 @@
                     plugins = [
                       "https://pyscript.net/latest/plugins/python/py_tutor.py"
                     ]
-              </py-config>
+                </py-config>
 
-             
-              <script type="py">
+
+                
+
+                <script type="py">
 
                     
                     import matplotlib.pyplot as plt
@@ -123,7 +132,6 @@
                     pd_imgs_np_train_np = pd_imgs_np_train.to_numpy()
                     pd_imgs_np_train_np      = pd_imgs_np_train_np[1:, 1:]
 
-
             
                     ######################################################
 
@@ -138,7 +146,7 @@
                         distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
                         k = 3
                         k_neighbor_indices = np.argsort(distances)[:k]
-                        selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((140, 39))  for i in k_neighbor_indices  ]
+                        selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((250, 250))  for i in k_neighbor_indices  ]
                     
                         avg_gen_img = np.mean( np.array(selected_imgs_to_avg), axis=0 )
                         avg_gen_img = avg_gen_img.astype(int)
@@ -190,8 +198,8 @@
                         #####################################################
 
                         fig1, ax1 = plt.subplots()
-                        plt.imshow(generated_img)                                     , cmap='summer')
-                        
+                        plt.imshow(generated_img)                                     ##, cmap='summer')
+                        plt.colorbar(label="Colorbar", orientation="vertical")
                         ax1.set_title(str_conditions)
 
                         ## Element('mpl').element.innerText = ""        ## use this to not accumulate imgs
@@ -208,10 +216,10 @@
                         ## display(fig, target="mpl")
    
                 </script>
+         
+        </section>
 
 
-
-         </section>
-    
-  </body>
+        
+    </body>
 </html>
