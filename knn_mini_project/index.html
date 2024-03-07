@@ -144,7 +144,7 @@
                     def predict(test_x):
                     
                         distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
-                        k = 6
+                        k = 8
                         k_neighbor_indices = np.argsort(distances)[:k]
                         selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((165, 165))  for i in k_neighbor_indices  ]
                     
@@ -212,7 +212,7 @@
                         ## ax[1].imshow(generated_img)
                         ## ax[0].set_title("Gen: " + str_conditions)
                         ## ax[1].set_title("real")
-                        ## Element('mpl').element.innerText = ""        ## use this to not accumulate imgs
+                           Element('mpl').element.innerText = ""        ## use this to not accumulate imgs
                         ## display(fig, target="mpl")
    
                 </script>
