@@ -114,7 +114,7 @@
 
                  
                     ###########################################
-                    o = float( Element('testInput11').element.value )
+                
 
                     url1 = ("https://huizarn.github.io/huizarn-NH_ITS365_2024/knn_mini_project/PD_ids_train.csv")
                     pd_ids_train = pd.read_csv(open_url(url1))
@@ -145,7 +145,7 @@
                     def predict(test_x):
                     
                         distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
-                        k = o
+                        k = float( Element('testInput11').element.value )
                         k_neighbor_indices = np.argsort(distances)[:k]
                         selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((165, 165))  for i in k_neighbor_indices  ]
                     
