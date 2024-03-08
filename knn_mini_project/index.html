@@ -36,7 +36,7 @@
  
   <tr>
      <td> K </td>
-     <td> <input type="text" style="border:3px solid #F7730E;" value="1" id="testInput1"/> </td>
+     <td> <input type="text" style="border:3px solid #F7730E;" value="1" id="testInput11"/> </td>
       
      <td> UST </td>
      <td> <input type="text" style="border:3px solid #F7730E;" value="1" id="testInput1"/> </td>
@@ -147,7 +147,7 @@
                     def predict(test_x):
                     
                         distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
-                        k = K
+                        k = testInput11
                         k_neighbor_indices = np.argsort(distances)[:k]
                         selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((165, 165))  for i in k_neighbor_indices  ]
                     
