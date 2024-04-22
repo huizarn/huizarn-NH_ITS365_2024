@@ -29,7 +29,7 @@ async function runExample() {
        <td>  Diabetes Predictor  </td>
        <td id="td0">  ${outputData.data[0].toFixed(2)}  </td>
      </tr>
-  </table>`;
+  </table>;
     
 
 
