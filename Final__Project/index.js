@@ -1,6 +1,6 @@
 async function runExample() {
 
-    var x = new Float32Array( 1, 7 )
+    var x = new Float32Array( 1, 11 )
 
     var x = [];
 
@@ -11,13 +11,16 @@ async function runExample() {
      x[4] = document.getElementById('box5').value;
      x[5] = document.getElementById('box6').value;
      x[6] = document.getElementById('box7').value;
+     x[7] = document.getElementById('box8').value;
+     x[8] = document.getElementById('box9').value;
+     x[9] = document.getElementById('box10').value;
+     x[10] = document.getElementById('box11').value;
 
-
-    let tensorX = new onnx.Tensor(x, 'float32', [1, 7]);
+    let tensorX = new onnx.Tensor(x, 'float32', [1, 11]);
 
     let session = new onnx.InferenceSession();
 
-    await session.loadModel("./DLnet_Diabetes.onnx");
+    await session.loadModel("./DLnet_WineData.onnx");
     let outputMap = await session.run([tensorX]);
     let outputData = outputMap.get('output1');
 
