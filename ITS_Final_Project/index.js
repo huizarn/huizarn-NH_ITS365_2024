@@ -26,7 +26,7 @@ async function runExample() {
   predictions.innerHTML = `<hr> Got an output tensor with values: <br/>
    <table>
      <tr>
-       <td>Diabetes Predictor</td>
+       <td>Diabetes Predictor </td>
        <td id="td0">${Math.round(outputData.data[0])}</td>
      </tr>
    </table>`;
