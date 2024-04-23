@@ -1,4 +1,4 @@
-async function runExample() {
+async function runExample2() {
 
     var x = new Float32Array( 1, 7 )
 
