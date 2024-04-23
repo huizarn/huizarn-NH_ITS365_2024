@@ -27,7 +27,7 @@ async function runExample() {
    <table>
      <tr>
        <td>Diabetes Predictor</td>
-       <td id="td0">${outputData.data[0].toFixed(2)}</td>
+       <td id="td0">${Math.round(outputData.data[0])}</td>
      </tr>
    </table>`;
     
